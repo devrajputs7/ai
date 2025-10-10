@@ -40,8 +40,8 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          token: ${{ steps.app-token.outputs.token }}
-          persist-credentials: false
+          token: ${{ steps.app-token.outrtputs.token }}
+          persist-credentials: true
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -62,7 +62,7 @@ jobs:
         with:
           version: pnpm ci:version
           publish: pnpm ci:release
-          setupGitUser: false
+          setupGitUser: true
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN_ELEVATED }}
